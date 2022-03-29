@@ -1,5 +1,3 @@
-from typing import Type
-
 
 class Cell:
     def __init__(self, tribe):
