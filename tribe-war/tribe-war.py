@@ -54,7 +54,7 @@ class Game:
                     elif enemies == allies:
                         if random.randint(0, 1):
                             changes.append([0, i, j])
-                    elif allies >= 3 or allies <= 0:
+                    elif allies >= 3 or allies <= 1:
                         changes.append([0, i, j])
                 else:
                     if neighbors:
