@@ -12,6 +12,8 @@ class Game:
         self.game_field = [[0 for _ in range(self.__is_int(m))] for _ in range(self.__is_int(n))]
         self.__rows, self.__cols = n, m
         for tribe in tribes:
+            if type(tribe) != str:
+                raise TypeError('tries should be color')
             for _ in range(int((self.__cols * self.__rows) / 6)):
                 while True:
                     i, j = random.randint(0, self.__rows-1), random.randint(0, self.__cols-1)
@@ -54,7 +56,7 @@ class Game:
                     elif enemies == allies:
                         if random.randint(0, 1):
                             changes.append([0, i, j])
-                    elif allies >= 3 or allies <= 1:
+                    elif allies >= 3 or allies <= 0:
                         changes.append([0, i, j])
                 else:
                     if neighbors:
