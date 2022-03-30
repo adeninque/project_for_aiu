@@ -1,8 +1,6 @@
 import random
 from tkinter import *
-from time import sleep
 from cell import Cell
-from collections import Counter
 
 class Game:
     def __init__(self, n, m, *tribes):
@@ -72,6 +70,7 @@ class Game:
         dead_color = '#F1F1F1'
         
         root = Tk()
+        root.title('Tribe War')
         root.geometry(f'{width}x{height}')
         canva = Canvas(root, width = width, height = height)
         
@@ -79,7 +78,7 @@ class Game:
             canva.delete('all')
             for i in range(self.__rows):
                     for j in range(self.__cols):
-                        canva.create_rectangle(0 + (20*j), 0 + (20*i), 20 + (20*j), 20 + (20*i), fill = dead_color if self.game_field[i][j] == 0 else self.game_field[i][j].color)
+                        canva.create_rectangle(0 + (20*j), 0 + (20*i), 20 + (20*j), 20 + (20*i), fill = dead_color if self.game_field[i][j] == 0 else self.game_field[i][j].color, outline = '')
             self.step()
             canva.after(100, run)
         
